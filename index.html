@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN"
+"http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html>
+<head>
+    <title>Votelka</title>
+    <style>
+        .buttons > div {
+            width: 25%;
+            height: 50px;
+            margin: 10px;
+            border: 2px solid #999;
+            background-color: #ccc;
+            float:left;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+        console.log = function(text) {
+            document.getElementById('console').innerHTML += text + '<hr>';
+
+        }
+    </script>
+</head>
+<body>
+
+    <div class="buttons">
+        <div id="vote_neutrally">0</div>
+        <div id="vote_negatively">-</div>
+        <div id="vote_positively">+</div>
+    </div>
+    <div style="clear: both"></div>
+
+    <div id="console">
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+</html>
