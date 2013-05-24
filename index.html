@@ -4,7 +4,11 @@
 <html>
 <head>
     <title>Votelka</title>
+    <script type="text/javascript" src="/jquery-2.0.0.min.js"></script>
     <style>
+        body {
+            font-family: Arial;
+        }
         .buttons > div {
             width: 25%;
             height: 50px;
@@ -15,25 +19,27 @@
             font-size: 40px;
             text-align: center;
         }
-    </style>
 
-    <script type="text/javascript">
-        console.log = function(text) {
-            document.getElementById('console').innerHTML += text + '<hr>';
-
+        .buttons > div.selected {
+            background-color: #999;
         }
-    </script>
+    </style>
 </head>
 <body>
 
     <div class="buttons">
-        <div id="vote_neutrally">0</div>
-        <div id="vote_negatively">-</div>
-        <div id="vote_positively">+</div>
+        <div id="vote_neutrally" data-vote="0" class="selected">0</div>
+        <div id="vote_negatively"data-vote="1">+</div>
+        <div id="vote_positively" data-vote="2">-</div>
     </div>
     <div style="clear: both"></div>
 
-    <div id="console">
+    <div>Пользователей online: <b id="users_online">0</b></div>
+    <div style="font-weight: bold; mergin-top:5px;">Результаты голосования:</div>
+    <div style="margin-left:10px;">
+        <div>Воздерживаются: <b id="users_vote_0">0</b></div>
+        <div>За: <b id="users_vote_1">0</b></div>
+        <div>Против: <b id="users_vote_2">0</b></div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
