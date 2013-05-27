@@ -9,10 +9,20 @@
   });
 
   socket.on('online users', function(data) {
+    var i, room, _i, _len, _results;
+
     console.log(data);
     $('#users_online').html(data.count);
-    if (data.votes) {
-      return showVotes(data.votes);
+    if (data.votes_cr) {
+      showVotes(data.votes);
+    }
+    if (data.rooms) {
+      _results = [];
+      for (i = _i = 0, _len = rooms.length; _i < _len; i = ++_i) {
+        room = rooms[i];
+        _results.push($('#room_select').append("<option value='" + room + "'>"));
+      }
+      return _results;
     }
   });
 

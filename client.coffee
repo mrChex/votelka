@@ -6,8 +6,12 @@ socket.on 'connected', (data)->
 socket.on 'online users', (data)->
 	console.log data
 	$('#users_online').html(data.count)
-	if data.votes
+	if data.votes_cr
 		showVotes data.votes
+
+	if data.rooms
+		for room, i in rooms
+			$('#room_select').append("<option value='#{room}'>")
 
 $('.buttons > div').on 'click', ->
 	if @className == 'selected'
